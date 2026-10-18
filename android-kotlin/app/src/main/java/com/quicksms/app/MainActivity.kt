@@ -183,7 +183,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkAndRequestPermissions() {
-        val needed = mutableListOf(Manifest.permission.SEND_SMS)
+        val needed = mutableListOf(
+            Manifest.permission.SEND_SMS,
+            Manifest.permission.READ_PHONE_STATE
+        )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             needed.add(Manifest.permission.POST_NOTIFICATIONS)
         }

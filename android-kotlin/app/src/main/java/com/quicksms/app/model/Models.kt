@@ -8,6 +8,9 @@ data class SmsRequest(
     
     @SerializedName("text")
     val text: String,
+
+    @SerializedName("sim_slot")
+    val simSlot: Int? = null,
     
     @SerializedName("sub_text")
     val subText: String? = null

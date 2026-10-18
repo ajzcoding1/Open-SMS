@@ -72,7 +72,7 @@ class HttpServer(
                 val req = gson.fromJson(postData, SmsRequest::class.java)
                 onLog("Sending SMS to ${req.number} from $clientIp", false)
                 
-                val success = smsDispatcher.sendSms(req.number, req.text)
+                val success = smsDispatcher.sendSms(req.number, req.text, req.simSlot)
                 if (success) {
                     onLog("✓ SMS delivered to ${req.number}", false)
                 } else {
