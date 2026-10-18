@@ -31,49 +31,20 @@ curl -i -X POST 'http://127.0.0.1:9292/sms/' \
 
 ## 📚 Tech Stack Used
 
-### Python stack
-It works on `Android` and will bring this to `Linux` & `Windows` too.
-- [FastAPI](https://github.com/fastapi/fastapi) for the API layer.
-- [KivyMD](https://github.com/kivymd/kivymd) and few [Kivy](https://github.com/kivy) components for the UI and building the app.
-
-### 📋 Future plans
-
-1. Bring this SMS API option to Desktop platforms. We will leverage [Quectel EC200U](https://www.quectel.com/product/lte-ec200u-series/) based USB development boards to send SMS.
+### 📱 Native Android Kotlin Stack
+- **Native Android:** Kotlin, Material 3, Android Foreground Service with WakeLock.
+- **Embedded API Server:** Lightweight NanoHTTPD server on port `9292`.
+- **SMS Telephony:** Native `SmsManager` with automatic multi-part message splitting & Dual SIM slot selection.
 
 -----
 
-## 🧩 Building your app from code
+## 🧩 Building Your App From Code
 
-### 📱 Build Android App
-A Linux environment is recommended for the app development. If you are on Windows, you may use `WSL` or any `Virtual Machine`.
+### 1. Automated Cloud Build (GitHub Actions)
+Har push par GitHub Actions automatically APK compile kar deta hai. Aap [Actions tab](https://github.com/ajzcoding1/Open-SMS/actions) se direct fresh APK download kar sakte hain.
 
-```bash
-# add the python repository (Optional: if you want some other versions)
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt update
-
-# install all dependencies.
-sudo apt install -y ant autoconf automake ccache cmake g++ gcc lbzip2 libffi-dev libltdl-dev libtool libssl-dev make openjdk-17-jdk patch patchelf pkg-config unzip wget zip git python3 python3-venv python3-dev libcairo2-dev pkg-config libjpeg-dev zlib1g-dev
-
-# optionally you may check the java installation with below commands
-java -version
-javac -version
-
-# install python modules
-git clone https://github.com/ajzcoding1/Open-SMS.git
-cd OpenSMS/app
-python3 -m venv .env # create python virtual environment
-source .env/bin/activate
-pip install -r req_android.txt
-
-# build the android apk
-buildozer android debug # this may take a good amount of time for the first time & will generate the apk in the bin directory
-```
-
------
-
-### Linux Dependencies for build
-```bash
-sudo apt install libcairo2-dev pkg-config python3-dev
-sudo apt-get install libjpeg-dev zlib1g-dev
-```
+### 2. Android Studio (Local PC)
+1. Android Studio me `android-kotlin` folder open karein.
+2. Gradle sync complete hone dein.
+3. Menu me **Build > Build Bundle(s) / APK(s) > Build APK(s)** par click karein.
+4. Output APK yahan generate hogi: `android-kotlin/app/build/outputs/apk/debug/app-debug.apk`.

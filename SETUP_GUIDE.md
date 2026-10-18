@@ -80,24 +80,19 @@ Android security ke kaaran SMS permission block kar deta hai, isliye:
 
 ---
 
-### 💻 Part B: Computer / PC Setup (Testing & Web Panel)
+### 💻 Part B: Computer / PC Se SMS Bhejna (Web Panel)
 
-Computer par testing aur control ke liye setup ready hai:
+Phone ka server on hone ke baad aap PC se bina kisi extra software ke SMS bhej sakte hain:
 
-#### Step 1: App Run Karein
-Folder me maujood **`run.bat`** par double-click karein:
-- Yeh Python 3.12 environment ke sath OpenSMS app aur FastAPI server start kar dega.
-
-#### Step 2: Web Control Panel Kholein
-Browser (Chrome ya Edge) me yeh link open karein:  
-👉 **http://127.0.0.1:9292/**
-
-Yahan aapko ek **Visual Dashboard** milega:
-- 🟢 **Server Status:** Live dikhega
-- 🔑 **API Key:** Automatically pre-filled milegi
-- 📱 **Recipient Number:** Mobile number daalein (Country code ke sath, jaise `+919876543210`)
-- 💬 **SMS Message:** Apna message likhein
-- 🚀 **"Send SMS Now"** dabate hi SMS dispatch ho jayega!
+1. Dhyan rahe PC aur Android Phone dono **same Wi-Fi** se connected hon (ya phone ka hotspot PC se connect ho).
+2. PC ke browser (Chrome / Edge) me Phone ki screen par dikh raha IP address kholein:  
+   👉 **http://<PHONE-IP>:9292/** *(Jaise: `http://192.168.1.15:9292/`)*
+3. Yahan aapko ek **Visual Dashboard** milega:
+   - 🟢 **Server Status:** Live dikhega
+   - 🔑 **API Key:** Automatically pre-filled milegi
+   - 📱 **Recipient Number:** Mobile number daalein (Country code ke sath, jaise `+919876543210`)
+   - 💬 **SMS Message:** Apna message likhein
+   - 🚀 **"Send SMS Now"** dabate hi aapke Phone ke SIM se Real SMS chala jayega!
 
 ---
 
@@ -179,5 +174,5 @@ fetch("http://127.0.0.1:9292/sms/", {
   2. SIM card me SMS balance ya active plan hona zaroori hai.
   3. Phone ka "Battery Optimization" OpenSMS app ke liye OFF kar dein taaki background me server band na ho.
 
-### Q3: PC par server dubara kaise start karein?
-* **Solution:** Seedhe folder me jaakar **`run.bat`** par double click kar dein.
+### Q3: Server dubara kaise start karein?
+* **Solution:** Phone me app kholein aur "Start Server" par click karein.
