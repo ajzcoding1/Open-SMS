@@ -1,5 +1,3 @@
-<p align="center"><img width="20%" src="app/data/images/favicont512.png" /></p>
-
 # 📨 OpenSMS
 An open-source solution to host a `SMS` API server locally.
 
